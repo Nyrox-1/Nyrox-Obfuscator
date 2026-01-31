@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyrox Obfuscator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar" id="topBar">
+  <div class="top-left">
+    <a href="/" class="back-btn" data-i18n="back">Back</a>
+  </div>
+
+  <div class="top-right">
+    <a href="https://discord.gg/GpZjczBGMY" target="_blank">Discord</a>
+    <a href="https://www.tiktok.com/@nyrox4763" target="_blank">TikTok</a>
+    <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="currentColor">
+        <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397a4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549a4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/>
+      </svg>
+      <span data-i18n="badge_protection">Professional Protection</span>
+    </div>
+
+    <h1 data-i18n="title">Nyrox Obfuscator</h1>
+
+    <p class="subtitle" data-i18n="subtitle">
+      Advanced security and obfuscation system designed to protect Minecraft Bedrock addons,
+      ensuring code integrity, structural validation, and resistance against reverse engineering.
+    </p>
+  </div>
+
+  <!-- UPLOAD -->
+  <div class="upload-zone" id="uploadZone">
+    <input type="file" id="fileInput" accept=".zip">
+
+    <div class="upload-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0-3-3m3 3 3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
+      </svg>
+    </div>
+
+    <div class="upload-text" data-i18n="upload_title">Click to upload ZIP file</div>
+    <div class="upload-hint" data-i18n="upload_hint">
+      Supports Behavior Pack (BP) and Resource Pack (RP) nested structures
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-content" id="mainContent">
+
+    <!-- FILE TREE -->
+    <div class="file-tree">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/>
+        </svg>
+        <span data-i18n="file_structure">File Structure</span>
+      </h3>
+
+      <div id="treeContainer"></div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-dot green"></div>
+          <span data-i18n="legend_obfuscable">Obfuscable</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot gray"></div>
+          <span data-i18n="legend_readonly">Read-only</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot yellow"></div>
+          <span data-i18n="legend_protected">Protected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="settings-panel">
+
+      <div class="settings-section">
+        <div class="settings-header">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          </svg>
+          <span data-i18n="settings_obfuscation">Obfuscation Settings</span>
+          <span class="arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75 4.5 8.25"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="settings-content">
+          <div class="option-row">
+  <span>Convert PNG to TGA</span>
+  <input type="checkbox" class="checkbox" id="pngToTgaToggle" checked>
+</div>
+<div class="option-row">
+  <span>Obfuscate JSON</span>
+  <input type="checkbox" class="checkbox" id="jsonObfToggle" checked>
+</div>
+          <div class="option-row">
+            <span data-i18n="opt_minify_json">Minify JSON</span>
+            <input type="checkbox" class="checkbox" id="jsonToggle" checked>
+          </div>
+          <div class="option-row">
+            <span data-i18n="opt_obfuscate_js">Obfuscate JavaScript</span>
+            <input type="checkbox" class="checkbox" id="jsToggle" checked>
+          </div>
+          <div class="option-row">
+            <span data-i18n="opt_mc_validation">Minecraft Validation</span>
+            <input type="checkbox" class="checkbox" id="mcValidationToggle" checked>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-header">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/>
+          </svg>
+          <span data-i18n="settings_js_level">JS Obfuscation Level</span>
+          <span class="arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75 4.5 8.25"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="settings-content">
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="jsLevel" value="light">
+              <div class="radio-info">
+                <div class="radio-title" data-i18n="js_light">Light</div>
+                <div class="radio-desc" data-i18n="js_light_desc">Minify only</div>
+              </div>
+            </label>
+
+            <label class="radio-option selected">
+              <input type="radio" name="jsLevel" value="balanced" checked>
+              <div class="radio-info">
+                <div class="radio-title" data-i18n="js_balanced">Balanced</div>
+                <div class="radio-desc" data-i18n="js_balanced_desc">Recommended for Minecraft Bedrock addons</div>
+              </div>
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="jsLevel" value="heavy">
+              <div class="radio-info">
+                <div class="radio-title" data-i18n="js_heavy">Heavy</div>
+                <div class="radio-desc" data-i18n="js_heavy_desc">Maximum protection</div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="process-btn" id="processBtn" disabled>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+    </svg>
+    <span data-i18n="generate_zip">Generate Protected ZIP</span>
+  </button>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
+<script src="lang.js"></script>
+<script type="module" src="js/app.js"></script>
+
+<script>
+const topBar = document.getElementById("topBar");
+window.addEventListener("scroll", () => {
+  topBar.classList.toggle("hidden", window.scrollY > 80);
+});
+</script>
+
+</body>
+</html>
