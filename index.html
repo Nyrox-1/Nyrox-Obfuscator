@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nyrox Obfuscator</title>
+
+  <!-- Open Graph / Discord / WhatsApp / Telegram -->
+  <meta property="og:type"         content="website"/>
+  <meta property="og:url"          content="https://nyrox-obfuscator.vercel.app/"/>
+  <meta property="og:title"        content="Nyrox Obfuscator"/>
+  <meta property="og:description"  content="Professional and secure code obfuscation for Minecraft Bedrock addons. Protect your JavaScript and JSON files without breaking compatibility."/>
+  <meta property="og:image"        content="https://cdn.discordapp.com/attachments/1462607921895706646/1476284173479313549/file_8.png?ex=69a09046&is=699f3ec6&hm=0d5884104aacb174c056c438fd34d7729bce56423a4efbe78fa3aae1c5c307d1&"/>
+  <meta property="og:image:width"  content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Nyrox Obfuscator"/>
+  <meta name="twitter:description" content="Professional and secure code obfuscation for Minecraft Bedrock addons. Protect your JavaScript and JSON files without breaking compatibility."/>
+  <meta name="twitter:image"       content="https://cdn.discordapp.com/attachments/1462607921895706646/1476284173479313549/file_8.png?ex=69a09046&is=699f3ec6&hm=0d5884104aacb174c056c438fd34d7729bce56423a4efbe78fa3aae1c5c307d1&"/>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +28,6 @@
   <div class="top-links">
     <a href="https://discord.gg/GpZjczBGMY" target="_blank">Discord</a>
     <a href="https://www.tiktok.com/@nyrox4763" target="_blank">TikTok</a>
-
     <select id="languageSwitcher">
       <option value="en">English</option>
       <option value="es">Español</option>
@@ -21,23 +36,9 @@
 
   <!-- HERO -->
   <div class="hero">
-
     <div class="badge badge-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-           fill="currentColor" width="14" height="14">
-        <path fill-rule="evenodd"
-          d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549
-             a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497
-             A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397
-             a4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307
-             A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549
-             a4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498
-             A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397
-             a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387
-             a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22
-             a.75.75 0 0 0-1.06 1.06l2.25 2.25
-             a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-          clip-rule="evenodd"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+        <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397a4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549a4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/>
       </svg>
       <span data-i18n="badge">Minecraft Fixed Edition</span>
     </div>
@@ -49,10 +50,7 @@
       Protect your JavaScript and JSON files without breaking compatibility.
     </p>
 
-    <button class="main-btn" id="enterBtn" data-i18n="enter">
-      Enter
-    </button>
-
+    <button class="main-btn" id="enterBtn" data-i18n="enter">Enter</button>
   </div>
 
   <!-- FAQ -->
@@ -62,58 +60,36 @@
     <div class="faq-item">
       <div class="faq-question">
         <span data-i18n="faq1q">What file types are supported?</span>
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.5"
-             width="16" height="16">
-          <path stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 8.25 12 15.75 4.5 8.25"/>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75 4.5 8.25"/>
         </svg>
       </div>
-      <div class="faq-answer" data-i18n="faq1a">
-        JavaScript and JSON files used in Minecraft Bedrock behavior and resource packs.
-      </div>
+      <div class="faq-answer" data-i18n="faq1a">JavaScript and JSON files used in Minecraft Bedrock behavior and resource packs.</div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
         <span data-i18n="faq2q">Will this break my addons?</span>
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.5"
-             width="16" height="16">
-          <path stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 8.25 12 15.75 4.5 8.25"/>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75 4.5 8.25"/>
         </svg>
       </div>
-      <div class="faq-answer" data-i18n="faq2a">
-        No. The obfuscation process is designed to preserve full Bedrock compatibility.
-      </div>
+      <div class="faq-answer" data-i18n="faq2a">No. The obfuscation process is designed to preserve full Bedrock compatibility.</div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question">
         <span data-i18n="faq3q">Does everything run locally?</span>
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.5"
-             width="16" height="16">
-          <path stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 8.25 12 15.75 4.5 8.25"/>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75 4.5 8.25"/>
         </svg>
       </div>
-      <div class="faq-answer" data-i18n="faq3a">
-        Yes. All processing is done locally in your browser for maximum privacy.
-      </div>
+      <div class="faq-answer" data-i18n="faq3a">Yes. All processing is done locally in your browser for maximum privacy.</div>
     </div>
   </div>
 
   <script src="faq.js"></script>
   <script src="lang.js"></script>
-
   <script>
     document.getElementById("enterBtn").onclick = () => {
       window.location.href = "/obfuscator/index.html";
